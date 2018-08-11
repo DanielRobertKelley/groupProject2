@@ -1,3 +1,48 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+    background-image: url("./beach.jpg");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("beach.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+
+#carouselExampleSlidesOnly {
+  height: 250px !important;
+}
+
+input, .input-group {
+  width: 218px !important;
+  margin: 5px;
+}
+
+#origin1, #name1, #destination1 {
+  margin: 5px;
+}
+
+#header{
+  width: 100%;
+  height: 150px;
+  background-color: black;
+}
+
+#newRow {
+  clear: all;
+}
+#submit {
+  float: left;
+  width: 218px;
+  margin-left: -10px;
+}
+
+#name1 {
+  width: 300px; 
+}
+
+.carousel-inner {
+  height: 300px;
+}
+
