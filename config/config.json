@@ -1,19 +1,17 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "travel_db",
+    "password": null,
+    "database": "exampledb",
     "host": "localhost",
-    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "root",
-    "database": "travel_db",
+    "password": null,
+    "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 3306,
     "logging": false
   },
   "production": {
