@@ -6,7 +6,7 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -16,13 +16,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -31,9 +31,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -61,7 +61,7 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var example = {
@@ -74,7 +74,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(example).then(function () {
     refreshExamples();
   });
 
@@ -84,12 +84,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
@@ -97,3 +97,75 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$(document).ready(function () {
+
+  // Get references to page elements
+  //var $exampleText = $("#example-text");
+  //var $exampleDescription = $("#example-description");
+  //var $submitBtn = $("#submit");
+  //var $exampleList = $("#example-list");
+
+  var orgin = $("#origin");
+  var destination = $("#destination");
+  var startDate = $("#startDate");
+  var endDate = $("#endDate");
+
+  $("#submit").on("click", function () {
+
+
+    // The API object contains methods for each kind of request we'll make
+    var queryAirfare = "https://api.skypicker.com/flights?flyFrom=" + orgin + "&to=" + destination + "&dateFrom=" + startDate + "&dateTo=" + endDate + "&curr=USD&oneforcity=1&partner=picky";
+    $.ajax({
+      url: queryAirfare,
+      type: "GET"
+    }).done(function (response) {
+      var displayDiv = $("<div>");
+      var display = $("<div>");
+      display.attr("to_type", response.search_params.to_type);
+      display.attr("flyFrom_type", response.search_params.flyFrom_type);
+      display.attr("passengers", response.search_params.seats.passengers);
+      display.attr("cityTo", response.data.cityTo);
+      display.attr("cityFrom", response.data.cityFrom);
+      display.attr("price", response.data.price);
+      displayDiv.append(display);
+
+      $("#displayDiv").append(displayDiv);
+    });
+  });
+},
+
+
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+)
+
+document.getElementById("defaultOpen").click();
+
+$('#defaultOpen').on("click", function () {
+  $('#mgrTab').hide();
+})
+
+$('#mgrTab').on("click", function () {
+  $('#defaultOpen').hide();
+})
+
+

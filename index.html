@@ -7,89 +7,116 @@
     <title>Travel Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./styles/styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> Message Input Message Reginald Owens, Johnson Hampson, Daniel Kelley
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
     <script src="assets/js/jquery-2.1.0.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap-slider.js"></script>
     <script src="./js/index2.js"></script>
+
+    <script>
+        $(function () {
+            $('.input-group input-daterange #startDate').datePicker({
+                'format': 'dd-mm-yyyy',
+                'autoclose': true
+            })
+        });
+    </script>
 </head>
 
-<body style="background:url(./beach.jpeg);background-repeat: no-repeat;background-size: cover;">
+<body>
 
-    <div id="header">
 
-    </div>
 
-    <div class="container">
+    <div id="employee">
+        <div id="header">
+        </div>
         <div class="row">
             <div class="col-md-3">
-                <form>
-                    <div class="form-group " id="name1">
-                        <!-- <label for="inputAddress ">Name</label> -->
-                        <input type="text " class="form-control " id="name" id="inputAddress " placeholder="Enter Full Name ">
-                    </div>
-                    <div class="form-group " id="origin1">
-                        <!-- <label for="inputAddress ">Origin</label> -->
-                        <input type="text " class="form-control " id="origin" id="inputAddress " placeholder="Depart From">
-                    </div>
-                    <div class="form-group " id="destination1">
-                        <!-- <label for="inputAddress ">Destination</label> -->
-                        <input type="text " class="form-control " id="destination" placeholder="Destination">
-                    </div>
-                    <div class="input-group input-daterange">
-                        <input type="text" class="form-control" value="10/10/2018" id="startDate">
-                        <div class="input-group-addon">to</div>
-                        <input type="text" class="form-control" value="11/10/2018" id="endDate">
-                    </div>
-                    <div data-date="12/03/2012"></div>
-                    <div class="input-group mb-3 " id="newRow">
-                        <div class="input-group-prepend ">
-                            <label class="input-group-text " for="inputGroupSelect01 ">Airfare</label>
-                        </div>
-                        <select class="custom-select " id="inputGroupSelect01 " id="airfare">
-                            <option selected>Choose...</option>
-                            <option value="1 ">Yes</option>
-                            <option value="2 ">No</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <label class="input-group-text " for="inputGroupSelect01 ">Hotel</label>
-                        </div>
-                        <select class="custom-select " id="inputGroupSelect01 " id="hotel">
-                            <option selected>Choose...</option>
-                            <option value="1 ">Yes</option>
-                            <option value="2 ">No</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <label class="input-group-text " for="inputGroupSelect01 " id="car">Car</label>
-                        </div>
-                        <select class="custom-select " id="inputGroupSelect01 ">
-                            <option selected>Choose...</option>
-                            <option value="1 ">Yes</option>
-                            <option value="2 ">No</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="inputAddress "></label>
-                        <button type="submit " class="btn btn-primary " id="submit">Submit</button>
-                    </div>
-                </form>
             </div>
-            <div class="col-md-9" id="displayDiv">
-
+            <div class="col-md-2">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'employee')" id="defaultOpen">Employee</button>
+                    <button class=" tablinks " onclick="openCity(event, 'manager')" id="mgrTab">Manager</button>
+                </div>
             </div>
         </div>
+
+        <div class="container">
+            <div id="employee">
+                <div class="row">
+                    <div class="col-md-3">
+                        <form>
+                            <div class="form-group" id="name1">
+                                <!-- <label for="inputAddress ">Name</label> -->
+                                <input type="text" class="form-control" id="name" id="inputAddress" placeholder="Enter Full Name">
+                            </div>
+                            <div class="form-group" id="origin1">
+                                <!-- <label for="inputAddress ">Origin</label> -->
+                                <input type="text " class="form-control" id="origin" id="inputAddress" placeholder="Depart From">
+                            </div>
+                            <div class="form-group " id="destination1">
+                                <!-- <label for="inputAddress ">Destination</label> -->
+                                <input type="text" class="form-control" id="destination" placeholder="Destination">
+                            </div>
+                            <div class="input-group input-daterange">
+                                <label>From</label>
+                                <input type="text" autocomplete="off" class="form-control" placeholder="dd/mm/yyyy" id="startDate" />
+                                <div class="input-group-addon">To</div>
+                                <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="endDate" />
+                            </div>
+                            <div data-date="12/03/2012"></div>
+                            <div class="input-group mb-3 " id="newRow">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Airfare</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" id="airfare">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Hotel</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" id="hotel">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01" id="car">Car</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputAddress"></label>
+                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-9" id="displayDiv">
+
+                    </div>
+                </div>
+            </div>
+            <div id="manager">
+                <p>
+                    THis is the manager tab
+                </p>
+            </div>
+
 </body>
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+<script src="https://code.jquery.com/jquery-3.2.1.min.js " integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-
 
 </html>
