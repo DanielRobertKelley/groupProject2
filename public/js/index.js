@@ -1,4 +1,6 @@
 // Get references to page elements
+
+
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
@@ -106,16 +108,29 @@ $(document).ready(function () {
   //var $submitBtn = $("#submit");
   //var $exampleList = $("#example-list");
 
-  var orgin = $("#origin");
-  var destination = $("#destination");
-  var startDate = $("#startDate");
-  var endDate = $("#endDate");
 
   $("#submit").on("click", function () {
 
+    var name = $('#name').val().trim();
+    var origin = $("#origin").val().trim();
+    var destination = $("#destination").val().trim();
+    var startDate = $("#startDate").val().trim();
+    var endDate = $("#endDate").val().trim();
+    var airfare = $("#airfare").val().trim();
+    var car = $("#car").val().trim();
+    var hotel = $("#hotel").val().trim();
+
+    console.log(name);
+    console.log(origin);
+    console.log(destination);
+    console.log(startDate);
+    console.log(endDate);
+    console.log(airfare);
+    console.log(car);
+    console.log(hotel);
 
     // The API object contains methods for each kind of request we'll make
-    var queryAirfare = "https://api.skypicker.com/flights?flyFrom=" + orgin + "&to=" + destination + "&dateFrom=" + startDate + "&dateTo=" + endDate + "&curr=USD&oneforcity=1&partner=picky";
+    var queryAirfare = "https://api.skypicker.com/flights?flyFrom=" + origin + "&to=" + destination + "&dateFrom=" + startDate + "&dateTo=" + endDate + "&curr=USD&oneforcity=1&partner=picky";
     $.ajax({
       url: queryAirfare,
       type: "GET"
@@ -166,6 +181,7 @@ $('#defaultOpen').on("click", function () {
 
 $('#mgrTab').on("click", function () {
   $('#defaultOpen').hide();
+  $('#mgrTab').show();
 })
 
 
