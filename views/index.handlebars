@@ -1,33 +1,91 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+<div id="header">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="image6.jpg" width="110%" height="150px" style="margin:0px;">
+    </div>
+    <div class="col-md-3">
+      <img src="image7.jpg" width="110%" height="150px" style="margin:0px;">
+    </div>
+    <div class="col-md-3">
+      <img src="image8.jpg" width="110%" height="150px" style="margin:0px;">
+    </div>
+    <div class="col-md-3">
+      <img src="image2.jpg" width="110%" height="150px" style="margin:0px;">
     </div>
   </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <form>
+          <div class="form-group " id="name1">
+            <!-- <label for="inputAddress ">Name</label> -->
+            <input type="text " class="form-control " id="name" id="inputAddress " placeholder="Enter Full Name ">
+          </div>
+          <div class="form-group " id="origin1">
+            <!-- <label for="inputAddress ">Origin</label> -->
+            <input type="text " class="form-control " id="origin" id="inputAddress " placeholder="Depart From">
+          </div>
+          <div class="form-group " id="destination1">
+            <!-- <label for="inputAddress ">Destination</label> -->
+            <input type="text " class="form-control " id="destination" placeholder="Destination">
+          </div>
+          <div class="input-group input-daterange">
+            <input type="text" class="form-control" value="10/10/2018" id="startDate">
+            <div class="input-group-addon">to</div>
+            <input type="text" class="form-control" value="11/10/2018" id="endDate">
+          </div>
+          <div data-date="12/03/2012"></div>
+          <div class="input-group mb-3 " id="newRow">
+            <div class="input-group-prepend ">
+              <label class="input-group-text " for="inputGroupSelect01 ">Airfare</label>
+            </div>
+            <select class="custom-select " id="inputGroupSelect01 " id="airfare">
+              <option selected>Choose...</option>
+              <option value="1 ">Yes</option>
+              <option value="2 ">No</option>
+            </select>
+          </div>
+          <div class="input-group mb-3 ">
+            <div class="input-group-prepend ">
+              <label class="input-group-text " for="inputGroupSelect01 ">Hotel</label>
+            </div>
+            <select class="custom-select " id="inputGroupSelect01 " id="hotel">
+              <option selected>Choose...</option>
+              <option value="1 ">Yes</option>
+              <option value="2 ">No</option>
+            </select>
+          </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01" id="car">Car</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="1">Yes</option>
+              <option value="2">No</option>
+            </select>
+          </div>
+
+          <div class="col-md-2">
+            <label for="inputAddress"></label>
+            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-9" id="displayDiv">
+
+
+      </div>
+    </div>
+    <div id="manager">
+      <p>
+
+      </p>
+    </div>
+
+    <footer>
+      <p>Copyright Ⓒ 2018 GroupProject2 Team Members: Jason, Daniel, Johnson and Reggie</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>

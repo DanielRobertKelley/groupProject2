@@ -1,0 +1,34 @@
+<div class="col-md-6">
+    <h4>Review Travel Request</h4>
+    <div id="review_travel_request">
+
+        {{#each travel}} {{#unless complete}}
+        <form action="travel/review/{{id}}" method="POST">
+            <div class="input-group">
+                <li class="form-control">{{id}}. {{TravelList}}</li>
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="complete">complete</button>
+                </span>
+            </div>
+        </form>
+        {{/unless}} {{/each}}
+
+    </div>
+</div>
+<div class="col-md-6">
+    <h4>Request Complete</h4>
+    <div id="already_reviewd">
+
+        {{#each travel}} {{#if this.travel}}
+        <div class="input-group">
+            <li class="form-control">{{this.id}}. {{this.travel_request}}</li>
+            <span class="input-group-btn">
+                <button class="btn btn-info whine-button" type="delete">delete</button>
+            </span>
+        </div>
+        {{/if}} {{/each}}
+
+    </div>
+</div>
+</center>
+</div>
