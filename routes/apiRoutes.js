@@ -10,20 +10,34 @@ module.exports = function (app) {
 
   // Create a new travel
   app.post("/api/posttravel", function (req, res) {
+    console.log(req.body);
+    
     db.Travel.create({
-      employee_name: req.body.text,
-      start_date: req.body.text,
-      end_date: req.body.text,
-      origin: req.body.text,
-      destination: req.body.text,
-      airfare: req.body.text,
-      hotel: req.body.text,
-      car: req.body.text
+      employee_name: req.body.body,
+      startDate: req.body.body,
+      endDate: req.body.body,
+      origin: req.body.body,
+      destination: req.body.body,
+      airfare: req.body.body,
+      hotel: req.body.body,
+      car: req.body.body
     }).then(function (dbTravel) {
       res.json(dbTravel);
     })
       .catch(function (err) {
         res.json(err);
+      });
+  });
+
+  app.put("/api/posttravel", function(req, res) {
+    db.Travel.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbTravel) {
+        res.json(dbTravel);
       });
   });
 

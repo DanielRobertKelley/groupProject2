@@ -15,7 +15,6 @@ $(document).ready(function () {
 
     handleFormSubmit();
   });
-  var queryAirfare = "https://api.skypicker.com/flights?flyFrom=" + origin + "&to=" + destination + "&dateFrom=" + startDate + "&dateTo=" + endDate + "&curr=USD&oneforcity=1&partner=picky";
 
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -78,6 +77,15 @@ $(document).ready(function () {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function () {
 
+  var employee_name = $("#name").val().trim();
+   var origin = $("#origin").val().trim();
+   var destination = $("#destination").val().trim();
+   var startDate = $("#startDate").val().trim();
+   var endDate = $("#endDate").val().trim();
+   var airfare = $("#airfare").val();
+   var hotel = $("#hotel").val();
+   var car = $("#car").val();
+
   var travel = {
     employee_name: employee_name,
     startDate: startDate,
@@ -98,14 +106,14 @@ var handleFormSubmit = function () {
     //refreshTravel();
   });
 
-  employee_name.val("");
+  /*employee_name.val("");
   startDate.val("");
   endDate.val("");
   origin.val("");
   destination.val("");
   airfare.val("");
   car.val("");
-  hotel.val("");
+  hotel.val("");*/
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
