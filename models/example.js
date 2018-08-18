@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.DATEONLY,
       allowNull: false,
     },
-    orgin: {
+    origin: {
       type:DataTypes.STRING,
       allowNull:false,
       validate:{len:[1,100]}

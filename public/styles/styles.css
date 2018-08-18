@@ -24,6 +24,9 @@ body {
 #carouselExampleSlidesOnly {
   height: 250px !important;
 }
+#displayDiv {
+  background-color:white;
+}
 
 input, .input-group {
   width: 218px !important;
