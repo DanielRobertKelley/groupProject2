@@ -1,14 +1,23 @@
-<div class="col-md-6">
+<div class="col-md-6" style="width: 800px;margin: auto;">
     <h4>Review Travel Request</h4>
     <div id="review_travel_request">
 
-        {{#each travel}} {{#unless complete}}
+        {{#each dbTravel}} {{#unless complete}}
         <form action="travel/review/{{id}}" method="POST">
             <div class="input-group">
-                <li class="form-control">{{id}}. {{TravelList}}</li>
+                <li class="form-control">{{id}}. {{name}}</li>
+                <div>
+                    <p>
+                        <br> From: {{startDate}}&nbsp;&nbsp;To: {{endDate}}
+                        <br> Leaving from: {{origin}}&nbsp;&nbsp;Flying to: {{destination}}
+                        <br> Requesting: {{airfare}},&nbsp;{{hotel}},&nbsp;Car:{{car}}
+                    </p>
+
+                </div>
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="complete">complete</button>
                 </span>
+                <hr>
             </div>
         </form>
         {{/unless}} {{/each}}
@@ -19,7 +28,7 @@
     <h4>Request Complete</h4>
     <div id="already_reviewd">
 
-        {{#each travel}} {{#if this.travel}}
+        {{#each dbTravel}} {{#if this.dbTravel}}
         <div class="input-group">
             <li class="form-control">{{this.id}}. {{this.travel_request}}</li>
             <span class="input-group-btn">
